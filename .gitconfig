@@ -1,5 +1,10 @@
 [core]
 	editor = \"C:\\Users\\Arkademy\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe\" --wait
 [user]
-	name = deni.irawan40563
-	email = deni.irawan40563@gmail.com
+	name = Deni Irawan Nugraha
+	email = 60280044+deni-irawan40563@users.noreply.github.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
