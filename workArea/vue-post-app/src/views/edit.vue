@@ -23,6 +23,7 @@
 
 <script scoped>
 // @ is an alias to /src
+// eslint-disable-next-line no-unused-vars
 import axios from 'axios'
 import navBar from '@/components/navBar.vue'
 // eslint-disable-next-line no-unused-vars
@@ -40,7 +41,6 @@ export default {
     navBar,
     sideBarLeft,
     itemCardEdit,
-    // eslint-disable-next-line vue/no-unused-components
     AsideCard,
     modalAdd,
     ModalSearch,
@@ -52,20 +52,46 @@ export default {
       products: []
     }
   },
+
+  // mounted () {
+  //   this.load()
+  // },
   mounted () {
     axios.get(process.env.VUE_APP_BACK_END)
       .then((res) => {
-        console.log(res.data.result)
+        // console.log(res.data.result)
         this.products = res.data.result
       })
   }
+  // methods: {
+  //   async load () {
+  //     const response = await axios.get(process.env.VUE_APP_BACK_END)
+  //     this.products = response.data
+  //     console.log(response.data)
+  //   }
+  // }
+
+  // mounted () {
+  //   axios.get(process.env.VUE_APP_BACK_END)
+  //     .then((res) => {
+  //       console.log(res.data.result)
+  //       this.products = res.data.result
+  //     })
+  // }
+  // del (form) {
+  //   axios.delete('http://localhost:3000/users/' + form.id).then(res => {
+  //     this.load()
+  //     const index = this.products.indexOf(form)
+  //     this.products.splice(index, 1)
+  //   })
+  // }
   // methods: {
   //   deleteItem (val) {
   //     this.products.filters((products) => {
   //       return products.id !== val
   //     })
   //   }
-  // },
+  // }
   // methods: {
   //   async addTodo () {
   //     const res = await axios.post(process.env.VUE_APP_BACK_END, this.form)
