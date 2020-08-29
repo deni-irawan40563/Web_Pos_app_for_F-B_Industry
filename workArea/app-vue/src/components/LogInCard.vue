@@ -1,19 +1,30 @@
 <template>
 <div class="kotak_login shadow-lg border-black bg-light w-50 h-75">
- <form class="container">
-  <div class="form-group text-left">
-    <label for="exampleInputEmail1" class="font-weight-bold mb-3">Your Position</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <small id="emailHelp" class="form-text text-muted">enter your position such as cashier, head of shop, or managerial</small>
+  <form class="container">
+      <div class="form-group text-left">
+          <label for="exampleInputEmail1" class="font-weight-bold mb-3">Your Division</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <small id="emailHelp" class="form-text text-muted font-weight-light">enter your division such as cashier, head of shop, or managerial</small>
+      </div>
+      <div class="form-group text-left">
+          <label for="exampleInputPassword1" class="font-weight-bold mb-3">Password</label>
+          <input type="password" class="form-control " id="exampleInputPassword1">
+          <small id="emailHelp" class="form-text text-muted font-weight-light">if you do not know your division password click forgot password</small>
+      </div>
+      <div class="form-group form-check">
+          <input type="radio" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label font-weight-light text-muted" for="exampleCheck1">Remember me</label>
+      </div>
+      <router-link to='/main' type="button" class="btn btn-style btn-lg btn-block mt-5 text-white">LOGIN</router-link>
+      <div class="text-center mt-3">
+          <router-link class="font-weight-light text-reset text-muted" to="">Forgot your password?</router-link>
+      </div>
+  </form>
+  <div class="text-center mt-3">
+          <p class="font-weight-light text-muted">Not Registered? <router-link to='/register' class="text-reset font-weight-bold">Sign Up</router-link></p>
   </div>
-  <div class="form-group text-left">
-    <label for="exampleInputPassword1" class="font-weight-bold mb-3">Division Password</label>
-    <input type="password" class="form-control " id="exampleInputPassword1">
-     <small id="emailHelp" class="form-text text-muted">if you do not know your division password ask your division supervisor</small>
-  </div>
-  <router-link to='/main' type="button" class="btn btn-style btn-lg btn-block mt-5 text-white">LOGIN</router-link>
-</form>
 </div>
+
 </template>
 
 <script>

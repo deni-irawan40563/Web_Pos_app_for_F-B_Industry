@@ -1,22 +1,22 @@
 <template>
-<div>
- <Navbar2 />
- <div class="row mt-5">
-   <sideBarLeft />
-  <div class="col-lg-11 col-sm-12 bg-light">
-      <div class="row mt-4 mx-auto container-fluid">
-        <CardHistory  class="col-lg-4 leftCard shadow-lg" />
-        <CardHistory  class="col-lg-4 centerCard shadow-lg" />
-        <CardHistory  class="col-lg-4 rightCard shadow-lg" />
-        <img src="../assets/img/Chart.jpg" class="col-lg-12 mt-5 shadow-lg">
-        <Table :dataHistory="history" class='shadow-lg col-12'/>
-        <buttomnav />
-     </div>
+  <div>
+      <Navbar2 />
+      <div class="row mt-5">
+          <sideBarLeft />
+          <div class="col-lg-11 col-sm-12 bg-light">
+            <div class="row mt-4 mx-auto container-fluid">
+                <CardHistory  class="col-lg-4 leftCard shadow-lg" />
+                <CardHistory  class="col-lg-4 centerCard shadow-lg" />
+                <CardHistory  class="col-lg-4 rightCard shadow-lg" />
+                <img src="../assets/img/Chart.jpg" class="col-lg-12 mt-5 shadow-lg">
+                <Table :dataHistory="history" class='shadow-lg col-12'/>
+                <buttomnav />
+            </div>
+          </div>
+      </div>
+      <modalAdd />
+      <ModalSearch />
   </div>
- </div>
- <modalAdd />
- <ModalSearch />
-</div>
 </template>
 
 <script>

@@ -2,17 +2,17 @@
 <template>
   <div class="home">
     <navBar />
-     <aside />
+    <aside />
     <div class="row mt-5 articleParent">
       <sideBarLeft />
       <!-- <itemCard class="pt-4" /> -->
-     <div class="col-lg-7 bg-light pt-4">
+      <div class="col-lg-7 bg-light pt-4">
        <div class="container text-center">
-       <div class="row row-cols-1 row-cols-md-3 ml-1 mr-2 ">
-        <itemCard :img="product.image" :name="product.name" :price="product.price" v-for="product in products" :key="product.id" />
+        <div class="row row-cols-1 row-cols-md-3 ml-1 mr-2 ">
+            <itemCard :img="product.image" :name="product.name" :price="product.price" v-for="product in products" :key="product.id"/>
+        </div>
       </div>
-    </div>
-  </div>
+      </div>
       <AsideCard />
     </div>
     <modalAdd />

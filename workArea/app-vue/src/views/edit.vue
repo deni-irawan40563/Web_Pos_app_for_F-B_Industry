@@ -1,20 +1,18 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
 <template>
   <div class="home">
     <navBar />
-     <aside />
+    <aside />
     <div class="row mt-5 articleParent">
       <sideBarLeft />
       <!-- <itemCard class="pt-4" /> -->
      <div class="col-lg-7 bg-light pt-4">
        <div class="container text-center">
-       <div class="row row-cols-1 row-cols-md-3 ml-1 mr-2 ">
-        <itemCardEdit :img="product.image" :name="product.name" :price="product.price" v-for="product in products" :key="product.id" />
-      </div>
+        <div class="row row-cols-1 row-cols-md-3 ml-1 mr-2 ">
+            <itemCardEdit :img="product.image" :name="product.name" :id="product.id" :price="product.price" v-for="product in products" :key="product.id"  v-on:delete-btn="deleteItem"/>
+        </div>
+       </div>
     </div>
-  </div>
-      <AsideCard />
+    <AsideCard />
     </div>
     <modalAdd />
     <ModalSearch />
@@ -51,14 +49,7 @@ export default {
   },
   data () {
     return {
-      products: [],
-      form: {
-        id: '',
-        name: '',
-        image: '',
-        price: '',
-        idCategory: ''
-      }
+      products: []
     }
   },
   mounted () {
@@ -67,23 +58,21 @@ export default {
         console.log(res.data.result)
         this.products = res.data.result
       })
-  },
-  add () {
-    axios.post(process.env.VUE_APP_BACK_END, this.form).then(res => {
-      this.load()
-      this.form.name = ''
-      this.form.image = ''
-      this.form.price = ''
-      this.form.idCategory = ''
-    })
-  },
-  del (user) {
-    axios.delete('http://localhost:18000/products/' + this.product.id).then(res => {
-      this.load()
-      const index = this.products.indexOf(this.form)
-      this.product.splice(index, 1)
-    })
   }
+  // methods: {
+  //   deleteItem (val) {
+  //     this.products.filters((products) => {
+  //       return products.id !== val
+  //     })
+  //   }
+  // },
+  // methods: {
+  //   async addTodo () {
+  //     const res = await axios.post(process.env.VUE_APP_BACK_END, this.form)
+  //     this.products = [...this.products, res.data]
+  //     this.form = ''
+  //   }
+  // }
 }
 </script>
 

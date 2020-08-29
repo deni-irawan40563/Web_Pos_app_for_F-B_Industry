@@ -1,19 +1,19 @@
 <template>
-        <div class="col mb-4">
-          <div class="position-relative listening">
-          <div class="filter"></div>
-          <!-- <div class="delete">
-          <buttom>delete </buttom>
-          <span> | </span>
-          <buttom> edit</buttom>
-          </div> -->
-          <img :src="img" class="card-img-top rounded-top image shadow-lg" />
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">{{name}}</h5>
-            <p class="card-text">Rp. {{price}}</p>
-          </div>
-        </div>
+  <div class="col mb-4">
+    <div class="position-relative listening">
+        <div class="filter"></div>
+        <!-- <div class="delete">
+            <buttom>delete </buttom>
+            <span> | </span>
+            <buttom> edit</buttom>
+        </div> -->
+        <img :src="img" class="card-img-top rounded-top image shadow-lg" />
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{name}}</h5>
+        <p class="card-text">Rp. {{price}}</p>
+    </div>
+  </div>
 </template>
 
 <script>

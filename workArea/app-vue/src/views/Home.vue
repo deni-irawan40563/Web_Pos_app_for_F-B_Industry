@@ -1,8 +1,8 @@
 
 <template>
-<div class="container">
-<LogInCard class="backgroud"/>
-</div>
+  <div class="container">
+    <LogInCard class="backgroud"/>
+  </div>
 </template>
 
 <script>
