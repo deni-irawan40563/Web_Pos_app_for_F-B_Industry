@@ -15,7 +15,7 @@ export default new Vuex.Store({
   },
   actions: {
     getProduct (setex) {
-      axios.get('http://localhost:18000/api/v1/products/')
+      axios.get(process.env.VUE_APP_BACK_END)
         .then((res) => {
           setex.commit('setProduct', res.data.result)
         })

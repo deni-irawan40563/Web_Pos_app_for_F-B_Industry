@@ -21,7 +21,7 @@
 </template>
 
 <script scoped>
-import axios from 'axios'
+// import axios from 'axios'
 import navBar from '@/components/navBar.vue'
 import sideBarLeft from '@/components/sideBarLeft.vue'
 import AsideCard from '@/components/AsideCard.vue'
@@ -29,7 +29,7 @@ import itemCard from '@/components/itemCard.vue'
 import modalAdd from '@/components/modalAdd.vue'
 import buttomnav from '@/components/buttomnav.vue'
 import ModalSearch from '@/components/ModalSearch.vue'
-// import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'Main',
@@ -57,13 +57,13 @@ export default {
     }
   },
   mounted () {
-    axios.get('http://backend.posapp.desk.my.id/api/v1/products/')
-      .then((res) => {
-        console.log(res.data.result)
-        this.products = res.data.result
-        this.getBooks()
-      })
-    // this.$store.dispatch('getProduct')
+    // axios.get('http://backend.posapp.desk.my.id/api/v1/products/')
+    //   .then((res) => {
+    //     console.log(res.data.result)
+    //     this.products = res.data.result
+    //     this.getBooks()
+    //   })
+    this.$store.dispatch('getProduct')
   }
 }
 </script>
