@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 <template>
   <div class="home">
     <navBar />
@@ -29,6 +28,7 @@ import itemCard from '@/components/itemCard.vue'
 import modalAdd from '@/components/modalAdd.vue'
 import buttomnav from '@/components/buttomnav.vue'
 import ModalSearch from '@/components/ModalSearch.vue'
+// eslint-disable-next-line no-unused-vars
 import { mapActions, mapGetters } from 'vuex'
 
 export default {

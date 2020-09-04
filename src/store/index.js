@@ -6,7 +6,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    products: []
+    products: [],
+    token: localStorage.getItem('token') || null
   },
   mutations: {
     setProduct (state, payload) {
@@ -24,6 +25,9 @@ export default new Vuex.Store({
   getters: {
     getProduct (state) {
       return state.products
+    },
+    isLogin (state) {
+      return state.token !== null
     }
   },
   modules: {
