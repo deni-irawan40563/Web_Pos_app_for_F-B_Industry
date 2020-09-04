@@ -40,6 +40,10 @@ const routes = [{
   path: '/coba',
   name: 'coba',
   component: () => import('../views/coba.vue')
+},
+{
+  path: '/*',
+  component: 404
 }
 ]
 
