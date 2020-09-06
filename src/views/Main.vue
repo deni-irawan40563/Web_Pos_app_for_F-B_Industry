@@ -3,7 +3,28 @@
     <navBar />
     <aside />
     <div class="row mt-5 articleParent">
-      <sideBarLeft />
+      <div class="col-lg-1">
+      <div class="sideBarLeft">
+        <button type="button" class="btn btn-white style-bottom mt-5">
+          <router-link to="/main">
+            <img src="../assets/icons/fork.svg" />
+          </router-link>
+        </button>
+        <button type="button" class="btn btn-white style-bottom mt-5">
+          <router-link to="/history">
+            <img src="../assets/icons/clipboard.svg" />
+          </router-link>
+        </button>
+        <button type="button" class="btn btn-white style-bottom mt-5" @click="toggleModal">
+          <img src="../assets/icons/add.svg" />
+        </button>
+        <button type="button" class="btn btn-white style-bottom mt-5 mainHide" >
+          <router-link to="/edit">
+              <img src="../assets/icons/edit.svg" width="50" height="50" loading="lazy"/>
+          </router-link>
+        </button>
+    </div>
+  </div>
       <div class="col-lg-7 bg-light pt-4">
        <div class="container text-center">
         <div class="row row-cols-1 row-cols-md-3 ml-1 mr-2">
@@ -13,18 +34,17 @@
       </div>
       <AsideCard />
     </div>
-    <modalAdd />
     <ModalSearch />
     <buttomnav />
+    <modalAdd  v-show="modalActive" :closeModal="toggleModal"/>
   </div>
 </template>
 
 <script scoped>
 // import axios from 'axios'
 import navBar from '@/components/navBar.vue'
-import sideBarLeft from '@/components/sideBarLeft.vue'
 import AsideCard from '@/components/AsideCard.vue'
-import itemCard from '../components/itemCard'
+import itemCard from '@/components/itemCard'
 import modalAdd from '@/components/modalAdd.vue'
 import buttomnav from '@/components/buttomnav.vue'
 import ModalSearch from '@/components/ModalSearch.vue'
@@ -35,7 +55,6 @@ export default {
   name: 'Main',
   components: {
     navBar,
-    sideBarLeft,
     itemCard,
     AsideCard,
     modalAdd,
@@ -44,14 +63,20 @@ export default {
   },
   data () {
     return {
-      modalActive: false,
+      modalActive: true,
       products: [],
       username: '',
       password: ''
     }
   },
   methods: {
-    ...mapActions(['getProduct'])
+    ...mapActions(['getProduct']),
+    toggleModal () {
+      this.modalActive = !this.modalActive
+      if (!this.modalActive) {
+        this.clearModal()
+      }
+    }
   },
   computed: {
     ...mapGetters({
@@ -63,7 +88,6 @@ export default {
   },
   mounted () {
     this.getProduct()
-    this.$store.dispatch('getProduct')
   }
 }
 </script>
@@ -74,5 +98,19 @@ export default {
 }
 .mainHide {
   display: none;
+}
+.sideBarLeft {
+  text-align: center;
+  margin-right: 10%;
+}
+@media (max-width: 720px) {
+  .sideBarLeft2 {
+    display: none;
+  }
+}
+@media (max-width: 1000px) {
+  .sideBarLeft {
+    display: none;
+  }
 }
 </style>

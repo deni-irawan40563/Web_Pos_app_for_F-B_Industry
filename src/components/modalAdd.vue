@@ -1,5 +1,5 @@
 <template>
-  <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+  <div class="modal">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -11,23 +11,21 @@
               <!-- <input type="hidden" v-model="form.id"> -->
               <div class="form-group row ">
                   <h5 class="col-3 font-weight-bold">Name</h5>
-                  <input type="text" class="form-control col-9 shadow-sm" />
+                  <input type="text" v-model="data.name" class="form-control col-9 shadow-sm" id="form"/>
                   <small class="form-text text-muted"></small>
               </div>
               <div class="form-group row">
                   <h5 class="col-3 font-weight-bold">Image</h5>
-                  <input type="text" class="form-control shadow-sm col-9" />
+                  <input type="file" class="shadow-sm col-9" name="image" id="" @change="handleFile"/>
                   <small class="form-text text-muted"></small>
               </div>
               <div class="form-group row">
                   <h5 class="col-3 font-weight-bold">Price</h5>
-                  <input type="number" class="form-control col-6 shadow-sm"/>
-                  <small class="form-text text-muted"></small>
+                  <input type="number" v-model="data.price" class="col-6 shadow-sm" />
               </div>
               <div class="form-group row">
                   <h5 class="col-3 font-weight-bold">idCategory</h5>
-                  <input type="number" class="form-control col-6 shadow-sm"/>
-                  <small class="form-text text-muted"></small>
+                  <input type="number" v-model="data.idCategory" class="col-6 shadow-sm" />
               </div>
             </div>
           </form>
@@ -45,11 +43,26 @@
 // import axios from 'axios'
 export default {
   name: 'modalAdd',
-  props: ['name', 'image', 'price', 'idCategory']
+  props: {
+    data: {
+      type: Object
+    },
+    closeModal: {
+      type: Function
+    }
+  },
+  methods: {
+    handleFile (e) {
+      console.log(e.target.file[0])
+    }
+  }
 }
 </script>
 
 <style scoped>
+.modal {
+  display: block;
+}
 .btn-style {
   background: #F24F8A;
   border-radius: 10px;

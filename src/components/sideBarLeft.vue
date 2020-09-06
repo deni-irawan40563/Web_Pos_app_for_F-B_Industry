@@ -11,7 +11,7 @@
             <img src="../assets/icons/clipboard.svg" />
           </router-link>
         </button>
-        <button type="button" class="btn btn-white style-bottom mt-5 mainHide" data-toggle="modal" data-target="#addModal">
+        <button class="btn btn-white style-bottom mt-5 mainHide" @click="toggleModal">
           <img src="../assets/icons/add.svg" />
         </button>
         <button type="button" class="btn btn-white style-bottom mt-5 mainHide" >
@@ -24,6 +24,10 @@
 </template>
 
 <script>
+
+export default {
+  name: 'sideBarLeft'
+}
 </script>
 
 <style scoped>
