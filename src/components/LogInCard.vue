@@ -3,19 +3,19 @@
   <form class="container">
       <div class="form-group text-left">
           <label for="exampleInputEmail1" class="font-weight-bold mb-3">Your Email</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" v-model="email">
+          <input type="text" class="form-control" v-model="email" id="exampleInputEmail1" aria-describedby="emailHelp" >
           <small id="emailHelp" class="form-text text-muted font-weight-light">enter your division such as cashier, head of shop, or managerial</small>
       </div>
       <div class="form-group text-left">
           <label for="exampleInputPassword1" class="font-weight-bold mb-3">Password</label>
-          <input type="password" class="form-control " id="exampleInputPassword1" v-model="password">
+          <input type="password" class="form-control " v-model="password" id="exampleInputPassword1" autocomplete="on">
           <small id="emailHelp" class="form-text text-muted font-weight-light">if you do not know your division password click forgot password</small>
       </div>
       <div class="form-group form-check">
           <input type="radio" class="form-check-input" id="exampleCheck1">
           <label class="form-check-label font-weight-light text-muted" for="exampleCheck1">Remember me</label>
       </div>
-      <router-link to='/main' type="submit" class="btn btn-style btn-lg btn-block mt-5 text-white">LOGIN</router-link>
+      <button type="submit" class="btn btn-style btn-lg btn-block mt-5 text-white" @click="handleLogin">LOGIN</button>
       <div class="text-center mt-3">
           <router-link class="font-weight-light text-reset text-muted" to="">Forgot your password?</router-link>
       </div>
@@ -28,8 +28,25 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
-
+  name: 'loginCard',
+  data () {
+    return {
+      email: '',
+      password: ''
+    }
+  },
+  methods: {
+    handleLogin () {
+      const data = {
+        email: this.email,
+        password: this.password
+      }
+      this.login(data)
+    },
+    ...mapActions(['login'])
+  }
 }
 </script>
 

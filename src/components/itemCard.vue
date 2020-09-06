@@ -2,11 +2,11 @@
   <div class="col mb-4">
     <div class="position-relative listening">
         <!-- <div class="filter"></div> -->
-        <img :src="img" class="card-img-top rounded-top image shadow-lg" />
+        <img :src="item.image" class="card-img-top rounded-top image shadow-lg" />
     </div>
     <div class="card-body">
-        <h5 class="card-title">{{name}}</h5>
-        <p class="card-text">Rp. {{price}}</p>
+        <h5 class="card-title">{{item.name}}</h5>
+        <p class="card-text">Rp. {{item.price}}</p>
     </div>
   </div>
 </template>
@@ -14,13 +14,22 @@
 <script>
 export default {
   name: 'ItemCard',
-  props: ['name', 'price', 'img']
+  props: {
+    item: {
+      type: Object
+    }
+  }
 }
 </script>
 
 <style scoped>
-.image {
+.listening {
   height: 200px;
+}
+.image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 .image:hover {
   transition: filter 0.3s ease-in;
@@ -38,12 +47,12 @@ export default {
   background-position-y: center;
 }
 @media (max-width: 1200px) {
-.image {
+.listening {
   height: 180px;
   }
 }
 @media (max-width: 720px) {
-  .image {
+.listening {
    height: 250px;
   }
 }

@@ -22,7 +22,7 @@ const routes = [{
 {
   path: '/main',
   name: 'Main',
-  meta: { requiresAuth: true },
+  // meta: { requiresAuth: true },
   component: () => import('../views/Main.vue')
 },
 {
@@ -40,11 +40,11 @@ const routes = [{
   path: '/coba',
   name: 'coba',
   component: () => import('../views/coba.vue')
-},
-{
-  path: '/*',
-  component: 404
 }
+// {
+//   path: '/*',
+//   component: 404
+// }
 ]
 
 const router = new VueRouter({

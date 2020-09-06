@@ -6,8 +6,8 @@
       <sideBarLeft />
       <div class="col-lg-7 bg-light pt-4">
        <div class="container text-center">
-        <div class="row row-cols-1 row-cols-md-3 ml-1 mr-2 ">
-            <itemCard v-for="product in products"  :img="product.image" :name="product.name" :price="product.price" :key="product.id"/>
+        <div class="row row-cols-1 row-cols-md-3 ml-1 mr-2">
+            <itemCard v-for="product in productstate" :item="product" :key="product.id"/>
         </div>
       </div>
       </div>
@@ -24,7 +24,7 @@
 import navBar from '@/components/navBar.vue'
 import sideBarLeft from '@/components/sideBarLeft.vue'
 import AsideCard from '@/components/AsideCard.vue'
-import itemCard from '@/components/itemCard.vue'
+import itemCard from '../components/itemCard'
 import modalAdd from '@/components/modalAdd.vue'
 import buttomnav from '@/components/buttomnav.vue'
 import ModalSearch from '@/components/ModalSearch.vue'
@@ -44,25 +44,25 @@ export default {
   },
   data () {
     return {
+      modalActive: false,
       products: [],
       username: '',
       password: ''
     }
   },
   methods: {
+    ...mapActions(['getProduct'])
   },
   computed: {
+    ...mapGetters({
+      productstate: 'getProduct'
+    }),
     product () {
       return this.$store.getters.getProduct
     }
   },
   mounted () {
-    // axios.get('http://backend.posapp.desk.my.id/api/v1/products/')
-    //   .then((res) => {
-    //     console.log(res.data.result)
-    //     this.products = res.data.result
-    //     this.getBooks()
-    //   })
+    this.getProduct()
     this.$store.dispatch('getProduct')
   }
 }
