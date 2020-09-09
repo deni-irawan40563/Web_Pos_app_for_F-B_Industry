@@ -21,11 +21,11 @@
               </div>
               <div class="form-group row">
                   <h5 class="col-3 font-weight-bold">Price</h5>
-                  <input type="number" v-model="data.price" class="col-6 shadow-sm" />
+                  <input type="text" v-model="price" class="col-6 shadow-sm" />
               </div>
               <div class="form-group row">
                   <h5 class="col-3 font-weight-bold">idCategory</h5>
-                  <input type="number" v-model="data.idCategory" class="col-6 shadow-sm" />
+                  <input type="text" v-model="idCategory" class="col-6 shadow-sm" />
               </div>
             </div>
           </form>

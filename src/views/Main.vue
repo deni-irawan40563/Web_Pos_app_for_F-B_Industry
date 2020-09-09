@@ -15,8 +15,10 @@
             <img src="../assets/icons/clipboard.svg" />
           </router-link>
         </button>
-        <button type="button" class="btn btn-white style-bottom mt-5" @click="toggleModal">
+        <button type="button" class="btn btn-white style-bottom mt-5">
+          <router-link to="/edit">
           <img src="../assets/icons/add.svg" />
+          </router-link>
         </button>
         <button type="button" class="btn btn-white style-bottom mt-5 mainHide" >
           <router-link to="/edit">
@@ -63,7 +65,7 @@ export default {
   },
   data () {
     return {
-      modalActive: true,
+      modalActive: false,
       products: [],
       username: '',
       password: ''

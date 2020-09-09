@@ -5,11 +5,11 @@
       <div class="delete">
           <!-- <span class="ml-3 mr-3"> | </span> -->
       </div>
-      <img :src="img" class="card-img-top rounded-top image shadow-lg" />
+      <img :src="item.image" class="card-img-top rounded-top image shadow-lg" />
     </div>
     <div class="card-body">
-      <h5 class="card-title">{{products.name}}</h5>
-      <p class="card-text">Rp. {{products.price}}</p>
+      <h5 class="card-title">{{item.name}}</h5>
+      <p class="card-text">Rp. {{item.price}}</p>
       <buttom class="btn btn-outline-danger mr-4" @click="del(this.products)"> <i class="fas fa-trash-alt"></i> delete </buttom>
       <buttom class="btn btn-outline-info ml-4" data-toggle="modal" data-target="#editModal"><i class="far fa-edit"></i> edit</buttom>
     </div>
@@ -19,7 +19,11 @@
 <script>
 export default {
   name: 'ItemCard',
-  props: ['name', 'price', 'img', 'id']
+  props: {
+    item: {
+      type: Object
+    }
+  }
 }
 </script>
 

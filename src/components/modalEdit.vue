@@ -43,8 +43,7 @@
 
 <script>
 export default {
-  name: 'modalAdd',
-  props: ['id', 'name', 'price', 'idCategory']
+  name: 'modalAdd'
 }
 </script>
 
